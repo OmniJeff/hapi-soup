@@ -15,6 +15,7 @@
     "start": "node lib/server.js",
     "test": "nyc -r html -r text --check-coverage --lines 100 --functions 100 --branches 100 npm run -s mocha",
     "mocha": "mocha -R dot test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard | snazzy",
     "open-cover": "open coverage/index.html"
   },
@@ -27,7 +28,9 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.15",
     "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.2.0",
     "nyc": "^10.1.2",
     "proxyquire": "^1.7.10",
     "request": "^2.79.0"
