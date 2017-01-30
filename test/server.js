@@ -8,14 +8,14 @@ let HapiStub = {}
 let Server = Proxyquire('../lib/server', { 'hapi': HapiStub })
 
 const describe = require('mocha').describe
-// const before = require('mocha').before;
-// const beforeEach = require('mocha').beforeEach;
-// const afterEach = require('mocha').afterEach;
+// const before = require('mocha').before
+// const beforeEach = require('mocha').beforeEach
+// const afterEach = require('mocha').afterEach
 const it = require('mocha').it
 const chai = require('chai')
 const expect = chai.expect
 
-describe('kproxy server', () => {
+describe('my hapi server', () => {
   it('can be required', (done) => {
     expect(Server).to.exist
     done()

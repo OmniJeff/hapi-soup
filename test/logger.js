@@ -11,7 +11,7 @@ const describe = Mocha.describe
 const it = Mocha.it
 const expect = Chai.expect
 
-describe('kproxy logger', () => {
+describe('my hapi logger', () => {
   it('can be required', (done) => {
     expect(Logger).to.exist
     done()
