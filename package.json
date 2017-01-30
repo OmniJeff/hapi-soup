@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "node lib/server.js",
-    "test": "nyc -r html -r text --check-coverage --lines 100 --functions 100 --branches 100 npm run -s mocha",
+    "test": "nyc -r html -r text --check-coverage --lines 100 --functions 100 --branches 100 npm run -s mocha && standard | snazzy",
     "mocha": "mocha -R dot test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard | snazzy",
