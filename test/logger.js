@@ -1,19 +1,19 @@
 'use strict'
 
 const Logger = require('../lib/plugins/logger')
-const Chai = require('chai')
 const Mocha = require('mocha')
+const Chai = require('chai')
 
 const describe = Mocha.describe
 // const before = Mocha.before
 // const beforeEach = Mocha.beforeEach
 // const afterEach = Mocha.afterEach
 const it = Mocha.it
-const expect = Chai.expect
+const assert = Chai.assert
 
 describe('my hapi logger', () => {
   it('can be required', (done) => {
-    expect(Logger).to.exist
+    assert.exists(Logger)
     done()
   })
 
@@ -25,10 +25,10 @@ describe('my hapi logger', () => {
     }
 
     try {
-      expect(Logger.register(serverStub)).to.throw
+      assert.throws(Logger.register(serverStub))
       done()
     } catch (err) {
-      expect(err).to.exist
+      assert.exists(err)
       done()
     }
   })

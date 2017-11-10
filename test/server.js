@@ -8,40 +8,36 @@ let HapiStub = {}
 let Server = Proxyquire('../lib/server', { 'hapi': HapiStub })
 
 const describe = require('mocha').describe
-// const before = require('mocha').before
-// const beforeEach = require('mocha').beforeEach
-// const afterEach = require('mocha').afterEach
 const it = require('mocha').it
-const chai = require('chai')
-const expect = chai.expect
+const assert = require('chai').assert
 
 describe('my hapi server', () => {
   it('can be required', (done) => {
-    expect(Server).to.exist
+    assert.exists(Server)
     done()
   })
 
   it('responds to a /ping GET', (done) => {
     Request('http://localhost:8000/ping', (err, res, body) => {
-      expect(err).to.not.exist
-      expect(res).to.exist
-      expect(body).to.exist
-      expect(res.statusCode).to.equal(200)
-      expect(JSON.parse(body)).to.eql({ success: true })
+      assert.notExists(err)
+      assert.exists(res)
+      assert.exists(body)
+      assert.equal(res.statusCode, 200)
+      assert.deepEqual(JSON.parse(body), { success: true })
       done()
     })
   })
 
   it('errors out', (done) => {
     Server.stop({}, (err) => {
-      expect(err).to.not.exist
+      assert.notExists(err)
       HapiStub = Stubs.hapiStub
 
       try {
-        expect(Proxyquire('../lib/server', { 'hapi': HapiStub })).to.throw
+        assert.throws(Proxyquire('../lib/server', { 'hapi': HapiStub }))
         done()
       } catch (err) {
-        expect(err).to.exist
+        assert.exists(err)
         done()
       }
     })
