@@ -23,7 +23,7 @@
   "author": "Jeffrey White",
   "license": "Apache-2.0",
   "dependencies": {
-    "hapi": "^16.6.2",
+    "hapi": "^18.1.0",
     "hapi-pino": "2.0.0"
   },
   "devDependencies": {
